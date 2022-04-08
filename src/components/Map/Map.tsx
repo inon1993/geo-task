@@ -3,7 +3,7 @@ import mapImg from "../../assets/map.jpg";
 import cursorImg from "../../assets/cursor.png";
 import "./Map.css";
 
-const Map = () => {
+const Map = (props: any) => {
   const [cursorX, setCursorX] = useState(0);
   const [cursorY, setCursorY] = useState(0);
 
@@ -24,10 +24,9 @@ const Map = () => {
 
     setCursorX(clickX);
     setCursorY(clickY - 24);
+    console.log(x, y);
 
-    console.log(cursorX);
-
-    return { x, y };
+    props.onFindCorrds(x, y);
   };
 
   return (

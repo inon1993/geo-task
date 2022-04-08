@@ -1,4 +1,15 @@
 .geo-info {
+  padding: 24px;
+  text-align: left;
   background-color: red;
   grid-column: span 2;
+}
+
+.title {
+  margin: 0px 0 1rem;
+}
+
+.long,
+.lat {
+  margin: 0.5rem 0;
 }
