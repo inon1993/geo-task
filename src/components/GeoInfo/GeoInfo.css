@@ -22,3 +22,12 @@
 .select-location {
   padding-left: 1rem;
 }
+
+@media only screen and (max-width: 610px) {
+  .geo-info {
+    flex-direction: column;
+  }
+  .select-location {
+    padding: 1rem 0 0;
+  }
+}
