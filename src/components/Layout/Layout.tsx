@@ -2,9 +2,8 @@ import { useState } from "react";
 import Map from "../Map/Map";
 import GeoInfo from "../GeoInfo/GeoInfo";
 import AuroraInfo from "../AuroraInfo/AuroraInfo";
-import axios from "axios";
-import "./Layout.css";
 import getData from "../../api/getData";
+import "./Layout.css";
 
 const Layout: any = () => {
   const [auroraData, setAuroraData] = useState();
@@ -19,8 +18,6 @@ const Layout: any = () => {
   };
 
   const selectedLocationHandler = (long: any, lat: any) => {
-    console.log("chc", long, lat);
-
     getDataHandler(lat, long);
   };
 

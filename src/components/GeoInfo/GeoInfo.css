@@ -1,4 +1,6 @@
 .geo-info {
+  display: flex;
+  justify-content: space-between;
   padding: 24px;
   text-align: left;
   background-color: white;
@@ -6,11 +8,16 @@
   grid-column: span 2;
 }
 
-.title {
+.select-location__title,
+.long-lat-info__title {
   margin: 0px 0 1rem;
 }
 
 .long,
 .lat {
   margin: 0.5rem 0;
+}
+
+.select-location {
+  padding-left: 1rem;
 }

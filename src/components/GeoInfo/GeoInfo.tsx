@@ -39,16 +39,22 @@ const GeoInfo = (props: any) => {
 
   return (
     <Card className="geo-info">
-      <h3 className="title">Geographical Information:</h3>
-      <p className="long">longitude: {long}</p>
-      <p className="lat">latitude: {lat}</p>
-      <select onChange={selsectOption}>
-        {locations.map((location: any, index) => (
-          <option key={index} value={index}>
-            {location.name}
-          </option>
-        ))}
-      </select>
+      <div className="long-lat-info">
+        <h3 className="long-lat-info__title">Geographical Information:</h3>
+        <p className="long">longitude: {long}</p>
+        <p className="lat">latitude: {lat}</p>
+      </div>
+
+      <div className="select-location">
+        <h3 className="select-location__title">Select location:</h3>
+        <select onChange={selsectOption}>
+          {locations.map((location: any, index) => (
+            <option key={index} value={index}>
+              {location.name}
+            </option>
+          ))}
+        </select>
+      </div>
     </Card>
   );
 };

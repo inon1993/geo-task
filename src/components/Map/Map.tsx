@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import mapImg from "../../assets/map.jpg";
-import cursorImg from "../../assets/cursor.png";
+import Cursor from "../UI/cursor";
 import "./Map.css";
 
 const Map = (props: any) => {
-  const [cursorX, setCursorX] = useState(0);
+  const [cursorX, setCursorX] = useState();
   const [cursorY, setCursorY] = useState(0);
 
   const imgRef = useRef<HTMLImageElement>(null);
@@ -24,7 +24,6 @@ const Map = (props: any) => {
 
     setCursorX(clickX);
     setCursorY(clickY - 24);
-    console.log(x, y);
 
     props.onFindCorrds(x.toFixed(5), y.toFixed(5));
   };
@@ -38,19 +37,7 @@ const Map = (props: any) => {
         onClick={getPoints}
         ref={imgRef}
       />
-      {cursorX !== 0 && (
-        <img
-          src={cursorImg}
-          alt="cursor"
-          style={{
-            position: "absolute",
-            width: "50px",
-            height: "50px",
-            left: `${cursorX}px`,
-            top: `${cursorY}px`,
-          }}
-        />
-      )}
+      {cursorX && <Cursor cursorX={cursorX} cursorY={cursorY} />}
     </div>
   );
 };
