@@ -26,7 +26,7 @@ const Map = (props: any) => {
     setCursorY(clickY - 24);
     console.log(x, y);
 
-    props.onFindCorrds(x, y);
+    props.onFindCorrds(x.toFixed(5), y.toFixed(5));
   };
 
   return (
