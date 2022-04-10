@@ -13,7 +13,7 @@ const AuroraInfo = (props: any) => {
     den: "",
   });
   const [probability, setProbability] = useState();
-  const [color, setColor] = useState("rgb(31, 31, 31");
+  const [color, setColor] = useState("rgb(31, 31, 31)");
 
   useEffect(() => {
     setData(props.onData);
