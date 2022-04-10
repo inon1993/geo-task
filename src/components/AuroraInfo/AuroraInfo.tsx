@@ -6,10 +6,12 @@ import colorChange from "../../helpers/colorChange";
 
 const AuroraInfo = (props: any) => {
   const [data, setData] = useState();
-  const [bz, setBz] = useState();
-  const [speed, setSpeed] = useState();
-  const [kp, setKp] = useState();
-  const [den, setDen] = useState();
+  const [dataObj, setDataObj] = useState({
+    bz: "",
+    kp: "",
+    speed: "",
+    den: "",
+  });
   const [probability, setProbability] = useState();
   const [color, setColor] = useState("rgb(31, 31, 31");
 
@@ -22,10 +24,31 @@ const AuroraInfo = (props: any) => {
       const values: any = calcAurora(data);
 
       setProbability(values);
-      setBz(ace.bz);
-      setKp(ace.kp);
-      setSpeed(ace.speed);
-      setDen(ace.density);
+
+      setDataObj((prevState: any) => {
+        return {
+          ...prevState,
+          bz: ace.bz,
+        };
+      });
+      setDataObj((prevState: any) => {
+        return {
+          ...prevState,
+          kp: ace.kp,
+        };
+      });
+      setDataObj((prevState: any) => {
+        return {
+          ...prevState,
+          speed: ace.speed,
+        };
+      });
+      setDataObj((prevState: any) => {
+        return {
+          ...prevState,
+          den: ace.density,
+        };
+      });
 
       setColor(colorChange(values));
     }
@@ -42,10 +65,10 @@ const AuroraInfo = (props: any) => {
             Aurora.
           </p>
         )}
-        {bz && <p>BZ: {bz}nT</p>}
-        {kp && <p>KP: {kp}</p>}
-        {speed && <p>Solar Speed: {speed}km/s</p>}
-        {den && <p>Solar Density: {den}p/cm^3</p>}
+        {dataObj.bz !== "" && <p>BZ: {dataObj.bz}nT</p>}
+        {dataObj.kp !== "" && <p>KP: {dataObj.kp}</p>}
+        {dataObj.speed !== "" && <p>Solar Speed: {dataObj.speed}km/s</p>}
+        {dataObj.den !== "" && <p>Solar Density: {dataObj.den}p/cm^3</p>}
       </div>
 
       {data && <p className="credit">Information via Auroras.live</p>}

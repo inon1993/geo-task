@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import getSelectedLocations from "../../api/getSelectedLocations";
 import Card from "../UI/Card";
 import "./GeoInfo.css";
 
@@ -8,26 +7,14 @@ const GeoInfo = (props: any) => {
   const [long, setLong] = useState(props.long);
   const [lat, setLat] = useState(props.lat);
 
-  let locationsArray: any = [];
-  const getLocations = async () => {
-    const locationsRaw = await getSelectedLocations();
-    if (locationsRaw) {
-      const tempArray: any = Object.entries(locationsRaw.data);
-      for (let i = 0; i < tempArray.length; i++) {
-        locationsArray.push(tempArray[i][1]);
-      }
-      setLocations(locationsArray);
-    }
-  };
-
   useEffect(() => {
+    setLocations(props.locations);
     setLong(props.long);
     setLat(props.lat);
-    getLocations();
-  }, [props.long, props.lat]);
+  }, [props.long, props.lat, props.locations]);
 
   const selsectOption = (e: any) => {
-    const selectedLocationObj: any = locations[e.target.value];
+    const selectedLocationObj: any = props.locations[e.target.value];
     const selectedLocationLong: any = selectedLocationObj.long;
     const selectedLocationLat: any = selectedLocationObj.lat;
 
@@ -48,7 +35,7 @@ const GeoInfo = (props: any) => {
       <div className="select-location">
         <h3 className="select-location__title">Select location:</h3>
         <select onChange={selsectOption}>
-          {locations.map((location: any, index) => (
+          {locations.map((location: any, index: any) => (
             <option key={index} value={index}>
               {location.name}
             </option>
