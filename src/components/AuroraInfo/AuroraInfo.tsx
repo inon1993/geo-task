@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../UI/Card";
 import calcAurora from "../../helpers/calcAurora";
 import "./AuroraInfo.css";
+import colorChange from "../../helpers/colorChange";
 
 const AuroraInfo = (props: any) => {
   const [data, setData] = useState();
@@ -10,6 +11,7 @@ const AuroraInfo = (props: any) => {
   const [kp, setKp] = useState();
   const [den, setDen] = useState();
   const [probability, setProbability] = useState();
+  const [color, setColor] = useState("rgb(31, 31, 31");
 
   useEffect(() => {
     setData(props.onData);
@@ -24,6 +26,8 @@ const AuroraInfo = (props: any) => {
       setKp(ace.kp);
       setSpeed(ace.speed);
       setDen(ace.density);
+
+      setColor(colorChange(values));
     }
   }, [props.onData, data]);
   return (
@@ -31,7 +35,13 @@ const AuroraInfo = (props: any) => {
       <div>
         <h3>Aurora Information:</h3>
         {!data && <p>Select location from the map or from location menu.</p>}
-        {probability && <p>Probability is {probability}% to see the Aurora.</p>}
+        {probability && (
+          <p>
+            Probability is{" "}
+            <span style={{ color: `${color}` }}>{probability}%</span> to see the
+            Aurora.
+          </p>
+        )}
         {bz && <p>BZ: {bz}nT</p>}
         {kp && <p>KP: {kp}</p>}
         {speed && <p>Solar Speed: {speed}km/s</p>}

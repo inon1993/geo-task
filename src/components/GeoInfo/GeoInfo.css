@@ -6,6 +6,7 @@
   background-color: white;
   color: rgb(31, 31, 31);
   grid-column: span 2;
+  font-weight: 500;
 }
 
 .select-location__title,
