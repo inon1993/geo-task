@@ -1,7 +1,8 @@
 .geo-info {
   padding: 24px;
   text-align: left;
-  background-color: red;
+  background-color: white;
+  color: rgb(31, 31, 31);
   grid-column: span 2;
 }
 

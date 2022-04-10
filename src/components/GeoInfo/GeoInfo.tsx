@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import getSelectedLocations from "../../api/getSelectedLocations";
+import Card from "../UI/Card";
 import "./GeoInfo.css";
 
 const GeoInfo = (props: any) => {
@@ -38,8 +38,8 @@ const GeoInfo = (props: any) => {
   };
 
   return (
-    <div className="geo-info">
-      <h2 className="title">Geographical Information:</h2>
+    <Card className="geo-info">
+      <h3 className="title">Geographical Information:</h3>
       <p className="long">longitude: {long}</p>
       <p className="lat">latitude: {lat}</p>
       <select onChange={selsectOption}>
@@ -49,7 +49,7 @@ const GeoInfo = (props: any) => {
           </option>
         ))}
       </select>
-    </div>
+    </Card>
   );
 };
 

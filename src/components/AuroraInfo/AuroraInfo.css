@@ -1,4 +1,7 @@
 .aurora-info {
-  background-color: blue;
+  background-color: white;
+  color: 31, 31, 31;
   grid-row: span 3;
+  text-align: left;
+  padding: 0 1rem;
 }
